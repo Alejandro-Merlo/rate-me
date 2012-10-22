@@ -62,7 +62,6 @@ class MyApplication < Sinatra::Base
     score = Score.new
     score.qualification = params[:options]
     score.comment       = "No comment"
-    score.event_id      = id
     score.save
 
     @message = "score was sent"

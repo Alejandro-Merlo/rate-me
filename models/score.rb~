@@ -1,0 +1,6 @@
+class Score < ActiveRecord::Base
+  validates_presence_of :qualification
+  validates_presence_of :comment
+  validates_presence_of :event
+  
+end
