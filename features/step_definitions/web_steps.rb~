@@ -241,6 +241,7 @@ Given /^the "([^"]*)" exists for "([^"]*)"$/ do |event_name, date|
    event.name = event_name
    event.date = Date.parse(date)
    event.user = "some"
+   event.scores = []
    event.save
 end
 

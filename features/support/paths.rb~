@@ -23,7 +23,7 @@ module NavigationHelpers
         '/events'
 
     when /rate event page/
-        '/event/' << @event_id << '/rate'
+        'event/' << @event_id << '/rate'
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
