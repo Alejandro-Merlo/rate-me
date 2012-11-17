@@ -1,0 +1,17 @@
+<center>
+
+  <h2> <%= @event%> </h2>
+
+  <form method="post" action="rate">
+    <label> Rate event </label> <br>
+    <br>
+
+    <input type="radio" id="Positive" name="options" value="Positive"> Positive <br>
+    <input type="radio" id="Neutral" name="options" value="Neutral"> Neutral <br>
+    <input type="radio" id="Negative" name="options" value="Negative"> Negative <br>
+    <br>
+
+    <input type="submit" value="Send"/>
+  </form>
+
+</center>
