@@ -2,7 +2,6 @@
   <ul>
     <li><a href="/new">New Event</a></li>
     <li><a href="#">Global Statistics</a></li>
-    <li><a href="#">Logout</a></li>
   </ul>
 </div>
 <h3 class="main-menu">Event list</h3>

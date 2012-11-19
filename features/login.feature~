@@ -1,0 +1,27 @@
+Feature: As a speaker i want to login in order to use the application
+
+        Background:
+          Given the user "Pepe" with password "abc1234" exists
+
+        Scenario: Successful login into the site
+          Given I am on login page
+          When I fill in "username" with "Pepe"
+          When I fill in "password" with "abc1234"
+          When I press "Login"
+          Then I should see "logged in"
+
+
+        Scenario: Invalid username. 
+          Given I am on login page
+          When I fill in "username" with "José"
+          When I fill in "password" with "abc1234"
+          When I press "Login"
+          Then I should see "Failed"
+
+
+        Scenario: Incorrect password
+          Given I am on login page
+          When I fill in "username" with "Pepe"
+          When I fill in "password" with "no_me_la_se"
+          When I press "Login"
+          Then I should see "Failed"

@@ -1,0 +1,7 @@
+Feature: As a speaker i want to delete events to take out them from the system
+
+        Scenario: Successful removal of one event
+          Given the "event 3" exists for "2012-10-10"
+          And I am on event list page
+          When i press the "Delete" button
+          Then i should see "event deleted"

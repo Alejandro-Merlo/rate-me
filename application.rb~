@@ -91,7 +91,7 @@ class MyApplication < Sinatra::Base
   get '/user/:id/events' do |id|
     user = User.find(id)
     
-    @list = Event.find_all_by_username(user.name)
+    @list = Event.find_all_by_user(user)
     erb :event_list
   end
 

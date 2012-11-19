@@ -18,4 +18,5 @@
       <td><input class="button" type="submit" value="Login"/><label class="register-label"> Don't you have an account? <a href="/sign">Register here!</a></label></td>
     </tr>
   </table>
+  <!-- <input class="button" type="submit" value="Login"/> Don't you have an account? <a href="/sign">Register here!</a>-->
 </form>

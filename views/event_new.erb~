@@ -3,13 +3,13 @@
 
   <label> Type new event name </label>
   </br>
-  <input type="text" required="required" name="name" />
+  <input type="text" name="name" />
   </br>
   </br>
 
   <label> Type the date for the new event </label>
   </br>
-  <input type="date" required="required" name="date" />
+  <input type="text" name="date" />
   </br>
   </br>
 

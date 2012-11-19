@@ -281,7 +281,7 @@ Given /^the "([^"]*)" of "([^"]*)" exists for "([^"]*)"$/ do |event_name, user_n
 end
 
 Given /^I am in the user "([^"]*)" (.+)$/ do |user_name, page_name|
-  @user_id = User.find_by_name(user_name).id.to_s()
-  visit path_to(page_name)
+  @event_id = Event.find_by_name(event_name).id.to_s()
+   visit path_to(page_name)
 end
 

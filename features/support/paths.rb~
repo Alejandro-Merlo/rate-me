@@ -20,7 +20,7 @@ module NavigationHelpers
         '/new'
 
     when /event list page/
-        '/user/' << @user_id << '/events'
+        '/events'
 
     when /rate event page/
         '/event/' << @event_id << '/rate'
