@@ -1,4 +1,4 @@
-Feature: As a speaker i want to login in order to use the application
+Feature: As a speaker I want to login in order to use the application
 
         Background:
           Given the user "Pepe" with password "abc1234" exists

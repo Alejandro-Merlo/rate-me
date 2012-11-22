@@ -3,15 +3,16 @@
 
   <label> Type new event name </label>
   </br>
-  <input type="text" name="name" />
+  <input type="text" required="required" name="name" />
   </br>
   </br>
 
   <label> Type the date for the new event </label>
   </br>
-  <input type="text" name="date" />
+  <input type="date" required="required" name="date" />
   </br>
   </br>
 
   <input class="button" type="submit" value="Create event"/>
+  <a href="/user/<%= @user_id %>/events"><input class="button" type="button" value="Cancel"/></a>
 </form>

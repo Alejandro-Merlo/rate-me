@@ -1,4 +1,4 @@
-Feature: As a speaker i want to sign in to login
+Feature: As a speaker I want to sign in to login
   Username should be unique
 
 	Scenario: Successful registration at the site

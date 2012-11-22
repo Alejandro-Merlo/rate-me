@@ -1,8 +1,21 @@
+<script language="javascript">
+   function showLink(li) {
+      var link  = li.getElementsByTagName('div')[0];
+      link.className = 'link';
+   }
+
+   function hideLink(li) {
+      var link  = li.getElementsByTagName('div')[0];
+      link.className = 'hiddenLink';
+   }
+   
+</script>
+
 <div class="nav">
   <ul>
-    <li><a href="/new">New Event</a></li>
+    <li><a href="/user/<%= @user_id %>/new">New Event</a></li>
     <li><a href="#">Global Statistics</a></li>
-    <li><a href="#">Logout</a></li>
+    <li><a style="background-image: none;" href="#">Logout</a></li>
   </ul>
 </div>
 <h3 class="main-menu">Event list</h3>
@@ -10,7 +23,12 @@
 <ul class="main-menu">
   <% @list.each do | event | %>
 
-     <li><%= event.name%> </li>
+     <li onmouseover="javascript:showLink(this);" onmouseout="javascript:hideLink(this);">
+       <label> <%= event.name%> at <%= event.date.strftime('%b %d, %Y')%> </label>
+       <div class="hiddenLink" id="linkField">
+         <span>Share Link: 0.0.0.0:8080/event/<%= event.id %>/rate</span>
+       </div>
+     </li>
 
   <%end%>
 </ul>

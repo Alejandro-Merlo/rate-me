@@ -1,31 +1,39 @@
 body {
    background-color: #3D7DAE;
+   background-image: url("/img/prestige-COD.jpg");
+   background-repeat: inherit;
    color: #D3E7E6;
    margin: 0;
    padding: 0;
 }
 
-.general-title h1 {
+* {
+   margin: 0;
+   padding: 0;
+}
+
+.general-title {
    background-color: #A8D2F2;
-   color: #0B2539;
+   background-image: url("/img/header_background_e.jpg");
+   background-position: center bottom;
+   color: #5D7CBF;
    padding-left: 30px;
    border-bottom: 1.5px solid #5E686E;
 }
 
 .nav {
-   background-color: black;
+   background-image: url("/img/navi_bg.png");
 }
 
 .nav ul {
    list-style-type: none;
-   background-image: url();
    height: 80px;
    width: 663px;
    margin: auto;
 }
 
 .nav ul a {
-   background-image: url();
+   background-image: url("/img/navi_bg_divider.png");
    background-repeat: no-repeat;
    background-position: right;
    padding-right: 32px;
@@ -36,6 +44,10 @@ body {
    font-family: Georgia, "Times New Roman", Times, serif;
    font-size: 21px;
    color: #371C1C;
+}
+
+.nav ul a:hover {
+   color: #FFF;
 }
 
 .nav li {
@@ -50,11 +62,13 @@ h2 {
    font-size: 130%;
    font-family: sans-serif;
    text-align: -moz-center;
+   padding-top: 20px;
 }
 
 h3 {  
    font-size: 130%;
    font-family: sans-serif;
+   padding: 20px 5px 5px 10px;
 }
 
 label {
@@ -68,27 +82,59 @@ ol {
 }
 
 .main-menu {
-    list-style: none outside none;
-    margin-left: 30px;
-    padding-left: 25px;
+   list-style: none outside none;
+   margin-left: 30px;
+   padding-left: 25px;
 }
 
 .main-menu li {
-    background: url("/img/arrow.gif") no-repeat scroll 0 0.8em transparent;
-    padding: 5px 10px 0 10px;
+   background: url("/img/arrow.gif") no-repeat scroll 0 0.8em transparent;
+   background-position: left;
+   padding: 0px 0px 0px 10px;
+   margin: 7px 0px 0px 0px;
+}
+
+.main-menu li label {
+   font-size: 16px;
+   font-family: "Trebuchet MS", Times;
+   padding: 5px; 
+}
+
+.main-menu li span {
+   font-size: 13px;
+   color: #FF5E00;
+}
+
+.link {
+   display: block;
+   position: absolute;
+   background-color: #002255;
+   border:1px solid 0053D0;	
+   font-family:"Trebuchet MS", Arial;
+   font-size: 10px;
+   z-index: 1000;
+}
+
+.hiddenLink {
+   display: none;
+   position: absolute;
 }
 
 .middle-form {
-    text-align: -moz-center;
-    padding: 25px;
+   text-align: -moz-center;
+   padding: 50px;
 }
 
 .middle-form td {
-    padding: 3px;
+   padding: 5px;
 }
 
 .register-label {
-    font-size: 8pt;
+   font-size: 8pt;
+}
+
+.cancel-button {
+   padding-left: 5px;
 }
 
 a {  
@@ -127,4 +173,38 @@ a {
 .button:active {
    border-top-color: #305c1b;
    background: #305c1b;
+}
+
+.button2 {
+   border-top: 1px solid #f79797;
+   background: #d66565;
+   background: -webkit-gradient(linear, left top, left bottom, from(#9c3e3e), to(#d66565));
+   background: -webkit-linear-gradient(top, #9c3e3e, #d66565);
+   background: -moz-linear-gradient(top, #9c3e3e, #d66565);
+   background: -ms-linear-gradient(top, #9c3e3e, #d66565);
+   background: -o-linear-gradient(top, #9c3e3e, #d66565);
+   padding: 2.5px 2.5px;
+   -webkit-border-radius: 3px;
+   -moz-border-radius: 3px;
+   border-radius: 3px;
+   -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
+   -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
+   box-shadow: rgba(0,0,0,1) 0 1px 0;
+   text-shadow: rgba(0,0,0,.4) 0 1px 0;
+   color: white;
+   font-size: 12px;
+   font-family: Georgia, Serif;
+   text-decoration: none;
+   vertical-align: middle;
+}
+
+.button2:hover {
+   border-top-color: #782828;
+   background: #782828;
+   color: #ccc;
+}
+
+.button2:active {
+   border-top-color: #5c1b1b;
+   background: #5c1b1b;
 }

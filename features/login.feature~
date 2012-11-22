@@ -16,7 +16,7 @@ Feature: As a speaker i want to login in order to use the application
           When I fill in "username" with "José"
           When I fill in "password" with "abc1234"
           When I press "Login"
-          Then I should see "Failed"
+          Then I should see "invalid username"
 
 
         Scenario: Incorrect password
@@ -24,4 +24,4 @@ Feature: As a speaker i want to login in order to use the application
           When I fill in "username" with "Pepe"
           When I fill in "password" with "no_me_la_se"
           When I press "Login"
-          Then I should see "Failed"
+          Then I should see "incorrect password"

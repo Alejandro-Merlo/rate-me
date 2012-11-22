@@ -2,7 +2,7 @@ Feature: As a speaker i want to sign in to login
   Username should be unique
 
 	Scenario: Successful registration at the site
-          Given the user "Daniel" doesn't exists
+          Given the user "Daniel" doesn't exist
 	  Given I am on registration page
 	  When I fill in "username" with "Daniel"
 	  And I fill in "password" with "abc1234"

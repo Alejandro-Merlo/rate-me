@@ -1,19 +1,27 @@
 <h2> <%= @event%> </h2>
 
 <form class="middle-form" method="post" action="rate">
-  <label> Rate this event! </label> </br>
-  </br>
-
-  <input type="radio" required="required" id="Positive" name="options" value="Positive"> Positive <br>
-  <input type="radio" required="required" id="Neutral" name="options" value="Neutral"> Neutral <br>
-  <input type="radio" required="required" id="Negative" name="options" value="Negative"> Negative <br>
-  </br>
-
-  <label> Please, leave your opinions about the event </label>
-  </br>
-  <input type="text" name="comment" value="No comments" />
-  </br>
-  </br>
-
-  <input class="button" type="submit" value="Send"/>
+  <table>
+    <caption><h2>Rate this event!</h2></caption>
+    <!--<tr>
+      <td></td>
+      <td>Posible feedback</td>
+    </tr>-->
+    <tr>
+      <td>Choose your score:</td>
+      <td>
+          <input type="radio" required="required" id="Positive" name="options" value="Positive"> Positive <br>
+          <input type="radio" required="required" id="Neutral" name="options" value="Neutral"> Neutral <br>
+          <input type="radio" required="required" id="Negative" name="options" value="Negative"> Negative <br>
+      </td>
+    </tr>
+    <tr>
+      <td>Leave a comment:</td>
+      <td><input name="comment" type="text" value=""/></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><input class="button" type="submit" value="Send"/></td>
+    </tr>
+  </table>
 </form>

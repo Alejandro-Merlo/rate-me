@@ -38,7 +38,7 @@ class MyApplication < Sinatra::Base
     return erb :login_fail if (user == nil)
 
     @user_id = user.id.to_s()
-    @message = "You have logged in the aplication"
+    @message = "You have logged in rate me!"
     erb :login_result
   end
 
@@ -65,33 +65,32 @@ class MyApplication < Sinatra::Base
     erb :user_new_result
   end
 
-  get '/new' do
+  get '/user/:id/new' do |id|
+    
+    @user_id = id
     erb :event_new
   end
 
-  post '/new' do
-    user           = "somebody@someplace.com"    
-    name           = params[:name]
-    date           = Date.parse(params[:date])
+  post '/user/:id/new' do |id|
+    user           = User.find(id)
+
     event          = Event.new
-    event.name     = name
-    event.date     = date
-    event.username = user
+    event.name     = params[:name]
+    event.date     = Date.parse(params[:date])
+    event.username = user.name
+    event.user_id  = id
     event.save
 
     @message = "Event created"
+    @user_id = id
     erb :event_new_result
   end
-
-  #get '/events' do
-   # @list = Event.all
-   # erb :event_list
-  #end
 
   get '/user/:id/events' do |id|
     user = User.find(id)
     
-    @list = Event.find_all_by_username(user.name)
+    @list    = Event.find_all_by_username(user.name)
+    @user_id = id
     erb :event_list
   end
 

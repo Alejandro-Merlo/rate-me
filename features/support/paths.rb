@@ -17,7 +17,7 @@ module NavigationHelpers
         '/auth/developer'
 
     when /create event\s?page/
-        '/new'
+        '/user/' << @user_id << '/new'
 
     when /event list page/
         '/user/' << @user_id << '/events'
