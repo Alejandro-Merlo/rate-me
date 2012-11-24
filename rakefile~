@@ -1,13 +1,14 @@
-require 'sinatra/activerecord/rake'
-require './application.rb'
-require 'cucumber/rake/task'
+begin
+  require 'sinatra/activerecord/rake'
+  require './application.rb'
+  require 'cucumber/rake/task'
 
- Cucumber::Rake::Task.new(:cucumber) do |task|
-   Rake::Task['db:migrate'].invoke
-   task.cucumber_opts = ["features"]
- end
+  Cucumber::Rake::Task.new(:cucumber) do |task|
+    Rake::Task['db:migrate'].invoke
+    task.cucumber_opts = ["features"]
+  end
 
-task :default => [:cucumber]
+  task :default => [:cucumber]
+  rescue LoadError
 
-
-
+end
