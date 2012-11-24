@@ -26,11 +26,9 @@
      <li onmouseover="javascript:showLink(this);" onmouseout="javascript:hideLink(this);">
        <label> <%= event.name%> at <%= event.date.strftime('%b %d, %Y')%> </label>
        <div class="hiddenLink" id="linkField">
-         <span>Share Link: 0.0.0.0:8080/event/<%= event.id %>/rate</span>
+         <span>Share Link: rate-me-amerlo-herokuapp.com/event/<%= event.id %>/rate</span>
        </div>
      </li>
 
   <%end%>
 </ul>
-
-<!-- <input class="button2" onclick="javascript:showLink(this);" type="button" value="Show link"/> -->

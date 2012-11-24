@@ -1,1 +1,1 @@
-web: bundle exec unicorn -l $HOST:$PORT
+web: bundle exec thin start -l $HOST:$PORT

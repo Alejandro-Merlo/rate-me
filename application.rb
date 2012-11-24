@@ -83,6 +83,7 @@ class MyApplication < Sinatra::Base
 
     @message = "Event created"
     @user_id = id
+    @event = event
     erb :event_new_result
   end
 

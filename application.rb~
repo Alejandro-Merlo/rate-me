@@ -81,10 +81,6 @@ class MyApplication < Sinatra::Base
     event.user_id  = id
     event.save
 
-    event2         = Event.find_by_name(event.name)
-    event2.url     = "rate-me.com/event/" << event2.id << "/rate"
-    event2.update
-
     @message = "Event created"
     @user_id = id
     erb :event_new_result
