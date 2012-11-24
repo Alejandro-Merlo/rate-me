@@ -1,6 +1,6 @@
 require 'sinatra/activerecord/rake'
-require 'application.rb'
 require 'cucumber/rake/task'
+require './application.rb'
 
  Cucumber::Rake::Task.new(:cucumber) do |task|
    Rake::Task['db:migrate'].invoke
