@@ -1,5 +1,5 @@
 require 'sinatra/activerecord/rake'
-require './application.rb'
+require 'application.rb'
 require 'cucumber/rake/task'
 
  Cucumber::Rake::Task.new(:cucumber) do |task|
