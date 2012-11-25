@@ -12,16 +12,6 @@ gem 'json'
 gem 'omniauth'
 gem 'omniauth-twitter'
 
-#gem 'sqlite3'
-#gem "rspec_junit_formatter"
-#gem 'simplecov'
-#gem 'cucumber-sinatra'
-#gem 'cucumber', '1.1.9'
-#gem 'capybara'
-#gem 'rspec'
-#gem 'therubyracer'
-#gem "jshintrb"
-
 group :test do
   gem 'sqlite3'
   gem "rspec_junit_formatter"

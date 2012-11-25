@@ -19,6 +19,10 @@
   </ul>
 </div>
 <h3 class="main-menu">Event list</h3>
+<label class="main-menu"> Select an event to see the link to share it!</label>
+<br/>
+<br/>
+<br/>
 
 <ul class="main-menu">
   <% @list.each do | event | %>
@@ -26,7 +30,7 @@
      <li onmouseover="javascript:showLink(this);" onmouseout="javascript:hideLink(this);">
        <label> <%= event.name%> at <%= event.date.strftime('%b %d, %Y')%> </label>
        <div class="hiddenLink" id="linkField">
-         <span>Share Link: rate-me-amerlo-herokuapp.com/event/<%= event.id %>/rate</span>
+         <a href="/event/<%= event.id %>/rate"><span>Share Link</span></a>
        </div>
      </li>
 

@@ -1,3 +1,4 @@
-<h3> <%= @message %>. Your link to this event is = rate-me-amerlo.herokuapp.com/event/<%= event.id %>/rate</h3>
+<h3> <%= @message %>.</h3>
+<h3> Your link to this event is = alejandro-merlo.com.ar/event/<%= @event.id %>/rate</h3>
 <hr/>
 <a href="/user/<%= @user_id %>/events">Continue</a>
