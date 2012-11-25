@@ -73,17 +73,24 @@ class MyApplication < Sinatra::Base
 
   post '/user/:id/new' do |id|
     user           = User.find(id)
+    @user_id       = id
 
     event          = Event.new
     event.name     = params[:name]
-    event.date     = Date.parse(params[:date])
+
+    begin
+       event.date = Date.parse(params[:date])
+    rescue
+       @message = "invalid date"
+       return erb :event_new_fail
+    end
+
     event.username = user.name
     event.user_id  = id
     event.save
 
     @message = "Event created"
-    @user_id = id
-    @event = event
+    @event   = event
     erb :event_new_result
   end
 

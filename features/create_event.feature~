@@ -1,4 +1,4 @@
-Feature: As a speaker i want to create an event in order to receive feedback
+Feature: As a speaker I want to create an event in order to receive feedback
   Event name should be unique
 
 	Scenario: Successful creation of an event

@@ -1,0 +1,3 @@
+<h3> <%= @message %>.</h3>
+<hr/>
+<a href="/user/<%= @user_id %>/events">Back</a>
