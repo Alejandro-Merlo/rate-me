@@ -10,5 +10,4 @@ begin
 
   task :default => [:cucumber]
   rescue LoadError
-
 end
