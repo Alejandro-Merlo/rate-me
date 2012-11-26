@@ -114,7 +114,7 @@ class MyApplication < Sinatra::Base
     score.qualification = params[:options]
     score.comment       = params[:comment]
     score.event_id      = id
-    score.save
+    score.save!
 
     @message = "score was sent"
     erb :rate_event_result
@@ -125,6 +125,7 @@ class MyApplication < Sinatra::Base
     @positives  = Score.where(:event_id => id, :qualification => 'Positive').count
     @neutrals   = Score.where(:event_id => id, :qualification => 'Neutral').count
     @negatives  = Score.where(:event_id => id, :qualification => 'Negative').count
+    @scores     = Score.where(:event_id => id, "comment NOT LIKE ''") 
 
     @event      = event
     erb :event_statistics

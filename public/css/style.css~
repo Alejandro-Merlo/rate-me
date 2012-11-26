@@ -197,6 +197,18 @@ a {
    margin-left: 20px;
 }
 
+.comment-field {
+   display: block;
+   position: absolute;
+   background-color: #100F0F;
+   color: #FF5E00;
+   border:1px solid 0053D0;
+   font-family:"Trebuchet MS", Arial;
+   font-size: 10px;
+   width: 300;
+   z-index: 1000;
+}
+
 .button {
    border-top: 1px solid #97f7c4;
    background: #9bd665;

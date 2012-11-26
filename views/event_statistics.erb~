@@ -1,5 +1,5 @@
 <div class="stats-body">
-  <h3>Event <%= @event.name %></h3>
+  <h3>Event: <%= @event.name %></h3>
   <label>Here you can analyze people think about your event</label>
   <h3>Scores summary</h3>
 
@@ -22,4 +22,11 @@
   <table>
 
   <h3>Comments</h3>
+    <% @scores.each do | score | %>
+      <br/>
+      <br/>
+      <div class="comment-field">
+        <label><%= score.comment %></label>
+      </div>
+    <%end%>
 </div>

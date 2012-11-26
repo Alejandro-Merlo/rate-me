@@ -125,6 +125,7 @@ class MyApplication < Sinatra::Base
     @positives  = Score.where(:event_id => id, :qualification => 'Positive').count
     @neutrals   = Score.where(:event_id => id, :qualification => 'Neutral').count
     @negatives  = Score.where(:event_id => id, :qualification => 'Negative').count
+    @scores     = Score.where(:event_id => id).where("comment NOT LIKE ''") 
 
     @event      = event
     erb :event_statistics

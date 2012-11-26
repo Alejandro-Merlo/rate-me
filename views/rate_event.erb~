@@ -17,7 +17,7 @@
     </tr>
     <tr>
       <td>Leave a comment:</td>
-      <td><input name="comment" type="text" value=" "/></td>
+      <td><input name="comment" type="text" value=""/></td>
     </tr>
     <tr>
       <td></td>

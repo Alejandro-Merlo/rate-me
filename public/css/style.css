@@ -201,10 +201,14 @@ a {
    display: block;
    position: absolute;
    background-color: #100F0F;
-   border:1px solid 0053D0;	
+   color: #FF5E00;
+   border:1px solid 0053D0;
    font-family:"Trebuchet MS", Arial;
    font-size: 10px;
+   width: 300;
    z-index: 1000;
+   border: 1px solid #3E3C38;
+   border-radius: 3px 3px 3px 3px;
 }
 
 .button {
