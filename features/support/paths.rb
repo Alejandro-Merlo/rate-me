@@ -25,11 +25,15 @@ module NavigationHelpers
     when /rate event page/
         '/event/' << @event_id << '/rate'
 
+    when /statistics page/
+        '/event/' << @event_id << '/statistics'
+
     when /login page/
         '/login'
 
     when /registration page/
         '/sign'
+
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

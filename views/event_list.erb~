@@ -22,7 +22,6 @@
 <label class="main-menu"> Select an event to see the link to share it!</label>
 <br/>
 <br/>
-<br/>
 
 <ul class="main-menu">
   <% @list.each do | event | %>
@@ -32,6 +31,7 @@
        <div class="hiddenLink" id="linkField">
          <a href="/event/<%= event.id %>/rate"><span>Share Link</span></a>
        </div>
+       <a href="/event/<%= event.id %>/statistics"><input class="button2" type="button" value="View statistics"/></a>
      </li>
 
   <%end%>

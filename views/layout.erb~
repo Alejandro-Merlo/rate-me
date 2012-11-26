@@ -8,9 +8,7 @@
 
     <body>
         <h1 class="general-title">Rate me!</h1>
-        <div class="body-content">
         	<%= yield %>
-        </div>
     </body>
 
 </html>

@@ -97,20 +97,20 @@ class MyApplication < Sinatra::Base
   get '/user/:id/events' do |id|
     user = User.find(id)
     
-    @list    = Event.find_all_by_username(user.name)
+    @list    = user.events
     @user_id = id
     erb :event_list
   end
 
   get '/event/:id/rate' do |id|
-    event = Event.find(id)
+    event  = Event.find(id)
     @event = event.name
 
     erb :rate_event
   end
 
   post '/event/:id/rate' do |id|
-    score = Score.new
+    score               = Score.new
     score.qualification = params[:options]
     score.comment       = params[:comment]
     score.event_id      = id
@@ -119,4 +119,15 @@ class MyApplication < Sinatra::Base
     @message = "score was sent"
     erb :rate_event_result
   end
+
+  get '/event/:id/statistics' do |id|
+    event       = Event.find(id)
+    @positives  = Score.where(:event_id => id, :qualification => 'Positive').count
+    @neutrals   = Score.where(:event_id => id, :qualification => 'Neutral').count
+    @negatives  = Score.where(:event_id => id, :qualification => 'Negative').count
+
+    @event      = event
+    erb :event_statistics
+  end
+
 end

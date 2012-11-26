@@ -1,0 +1,26 @@
+<div class="stats-body">
+  <h3>Event: <%= @event.name %></h3>
+  <label>Here you can analyze people think about your event</label>
+  <h3>Scores summary</h3>
+
+  <table class="common-table">
+    <thead>
+      <tr>
+        <th>Positive</th>
+        <th>Neutral</th>
+        <th>Negative</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td class="positive"><span> <%= @positives %></span></td>
+        <td class="neutral"><span> <%= @neutrals  %></span></td>
+        <td class="negative"><span> <%= @negatives %></span></td>
+      </tr>
+     </tbody>
+  <table>
+
+  <h3>Comments</h3>
+    
+</div>
