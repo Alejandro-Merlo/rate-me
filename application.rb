@@ -114,7 +114,7 @@ class MyApplication < Sinatra::Base
     score.qualification = params[:options]
     score.comment       = params[:comment]
     score.event_id      = id
-    score.save
+    score.save!
 
     @message = "score was sent"
     erb :rate_event_result
