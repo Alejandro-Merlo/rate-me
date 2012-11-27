@@ -15,7 +15,7 @@
   <ul>
     <li><a href="/user/<%= @user_id %>/new">New Event</a></li>
     <li><a href="#">Global Statistics</a></li>
-    <li><a style="background-image: none;" href="#">Logout</a></li>
+    <li><a style="background-image: none;" href="/login">Logout</a></li>
   </ul>
 </div>
 <h3 class="main-menu">Your event list</h3>
@@ -36,8 +36,10 @@
           </li>
         </td>
       
-        <td class="buttons-on-td"> 
+        <td class="button-on-td"> 
           <a href="/event/<%= event.id %>/statistics"><input class="button2" type="button" value="View statistics"/></a>
+        </td>
+        <td class="button-on-td">  
           <a href="/event/<%= event.id %>/edit"><input class="button2" type="button" value="Edit Event"/></a>
         </td>
       </tr>

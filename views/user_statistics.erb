@@ -1,0 +1,30 @@
+<div class="stats-body">
+  <h3>Global statistics of all your current events</h3>
+  <br/>
+
+  <h1>Scores summary</h1>
+
+  <table class="common-table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Positive</th>
+        <th>Neutral</th>
+        <th>Negative</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td><span> </span></td>
+        <td class="positive"><span> <%= @positives %></span></td>
+        <td class="neutral"><span> <%= @neutrals  %></span></td>
+        <td class="negative"><span> <%= @negatives %></span></td>
+      </tr>
+     </tbody>
+  <table>
+
+  <br/>
+  <br/>
+  <a href="/user/<%= @user.id %>/events"><input class="button" type="button" value="Back"/></a>
+</div>

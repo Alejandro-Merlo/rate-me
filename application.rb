@@ -134,6 +134,18 @@ class MyApplication < Sinatra::Base
     erb :event_statistics
   end
 
+  get '/user/:id/global_stats' do |id|
+    user      = User.find(id)
+    @user     = user
+    
+    events     = Event.joins(:scores).where(:user_id => id).scoped
+    @positives = events.where(:scores => {:qualification => 'Positive'}).count
+    @neutrals  = events.where(:scores => {:qualification => 'Neutral'}).count
+    @negatives = events.where(:scores => {:qualification => 'Negative'}).count
+    
+    erb :user_statistics
+  end
+
   get '/event/:id/edit' do |id|
     event  = Event.find(id)
     @user  = User.find_by_name(event.username)
