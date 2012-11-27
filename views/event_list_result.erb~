@@ -92,7 +92,7 @@
           <a href="/event/<%= event.id %>/edit"><input class="button2" type="button" value="Edit Event"/></a>
         </td>
         <td class="button-on-td">  
-          <form method="post" action="/event/<%= event.id %>/delete">
+          <form method="post" action="/event/<%= event.id %>/delete?">
             <input class="button2" type="submit" value="Delete Event"/>
           </form>
         </td>
