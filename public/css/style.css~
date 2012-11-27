@@ -207,6 +207,12 @@ a {
    font-size: 10px;
    width: 300;
    z-index: 1000;
+   border: 1px solid #3E3C38;
+   border-radius: 3px 3px 3px 3px;
+}
+
+.button-on-td {
+   padding: 10px 0px 0px 25px;
 }
 
 .button {

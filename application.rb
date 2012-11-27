@@ -122,13 +122,39 @@ class MyApplication < Sinatra::Base
 
   get '/event/:id/statistics' do |id|
     event       = Event.find(id)
-    @positives  = Score.where(:event_id => id, :qualification => 'Positive').count
-    @neutrals   = Score.where(:event_id => id, :qualification => 'Neutral').count
-    @negatives  = Score.where(:event_id => id, :qualification => 'Negative').count
-    @scores     = Score.where(:event_id => id).where("comment NOT LIKE ''") 
+    @user       = User.find_by_name(event.username)
+    
+    scores      = Score.where(:event_id => id).scoped
+    @positives  = scores.where(:qualification => 'Positive').count
+    @neutrals   = scores.where(:qualification => 'Neutral').count
+    @negatives  = scores.where(:qualification => 'Negative').count
+    @scores     = scores.where("comment NOT LIKE ''") 
 
     @event      = event
     erb :event_statistics
   end
 
+  get '/event/:id/edit' do |id|
+    event  = Event.find(id)
+    @user  = User.find_by_name(event.username)
+
+    
+    @event = event
+    erb :event_edit
+  end
+
+  post '/event/:id/edit' do |id|
+    event  = Event.find(id)
+    @user  = User.find_by_name(event.username)
+    
+    begin
+       Event.update(id, :name => params[:name], :date => Date.parse(params[:date]))
+    rescue
+       @event   = event
+       @message = "invalid date"
+       return erb :event_edit_fail
+    end
+    
+    erb :event_edit_result
+  end
 end

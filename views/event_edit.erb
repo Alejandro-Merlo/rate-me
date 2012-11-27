@@ -1,0 +1,19 @@
+<form class="middle-form" method="post" action="edit">
+  <h2>Edit Event: <%= @event.name %></h2>
+  </br>
+
+  <label> Type the new name </label>
+  </br>
+  <input type="text" name="name" />
+  </br>
+  </br>
+
+  <label> Type the new date </label>
+  </br>
+  <input type="date" name="date" />
+  </br>
+  </br>
+
+  <input class="button" type="submit" value="Edit event"/>
+  <a href="/user/<%= @user.id %>/events"><input class="button" type="button" value="Cancel"/></a>
+</form>

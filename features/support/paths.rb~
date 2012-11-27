@@ -26,7 +26,7 @@ module NavigationHelpers
         '/event/' << @event_id << '/rate'
 
     when /statistics page/
-        '/event' << @event_id << '/statistics'
+        '/event/' << @event_id << '/statistics'
 
     when /login page/
         '/login'

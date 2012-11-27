@@ -23,16 +23,26 @@
 <br/>
 <br/>
 
-<ul class="main-menu">
-  <% @list.each do | event | %>
-
-     <li onmouseover="javascript:showLink(this);" onmouseout="javascript:hideLink(this);">
-       <label> <%= event.name%> at <%= event.date.strftime('%b %d, %Y')%> </label>
-       <div class="hiddenLink" id="linkField">
-         <a href="/event/<%= event.id %>/rate"><span>Share Link</span></a>
-       </div>
-       <a href="/event/<%= event.id %>/statistics"><input class="button2" type="button" value="View statistics"/></a>
-     </li>
-
-  <%end%>
-</ul>
+<table class="main-menu">
+  <tbody>
+    <% @list.each do | event | %>
+      <tr>
+        <td onmouseover="javascript:showLink(this);" onmouseout="javascript:hideLink(this);">
+          <li>
+            <label> <%= event.name%> at <%= event.date.strftime('%b %d, %Y')%> </label>
+            <div class="hiddenLink" id="linkField">
+              <a href="/event/<%= event.id %>/rate"><span>Share Link</span></a>
+            </div>
+          </li>
+        </td>
+      
+        <td class="button-on-td"> 
+          <a href="/event/<%= event.id %>/statistics"><input class="button2" type="button" value="View statistics"/></a>
+        </td>
+        <td class="button-on-td">  
+          <a href="/event/<%= event.id %>/edit"><input class="button2" type="button" value="Edit Event"/></a>
+        </td>
+      </tr>
+    <%end%>
+  </tbody>
+<table>

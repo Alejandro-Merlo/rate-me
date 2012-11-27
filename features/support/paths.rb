@@ -28,6 +28,9 @@ module NavigationHelpers
     when /statistics page/
         '/event/' << @event_id << '/statistics'
 
+    when /edit event page/
+        '/event/' << @event_id << '/edit'
+
     when /login page/
         '/login'
 

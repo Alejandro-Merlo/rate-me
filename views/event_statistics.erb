@@ -21,7 +21,7 @@
      </tbody>
   <table>
 
-  <h3>Comments</h3>
+  <h3>Comments (if exist)</h3>
     <% @scores.each do | score | %>
       <div class="comment-field">
         <label><%= score.comment %></label>
@@ -29,4 +29,8 @@
       <br/>
       <br/>
     <%end%>
+
+  <br/>
+  <br/>
+  <a href="/user/<%= @user.id %>/events"><input class="button" type="button" value="Back"/></a>
 </div>

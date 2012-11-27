@@ -1,5 +1,7 @@
 class Score < ActiveRecord::Base
   validates_presence_of :qualification
-  validates :comment, presence: false
+                        :comment
+  
+  #scope :from_event, lamba { | id | where(:event_id => id) }
   
 end
