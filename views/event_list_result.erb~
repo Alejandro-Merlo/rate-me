@@ -21,9 +21,9 @@
 
 <div class="nav">
   <ul>
-    <li><a href="/user/<%= @user_id %>/new">New Event</a></li>
-    <li><a href="/user/<%= @user_id %>/global_stats">Global Statistics</a></li>
-    <li><a style="background-image: none;" href="/login">Logout</a></li>
+    <li><a href="/user/<%= @user.id %>/new">New Event</a></li>
+    <li><a href="/user/<%= @user.id %>/global_stats">Global Statistics</a></li>
+    <li><a style="background-image: none;" href="/login">Logout (<%= @user.name %>)</a></li>
   </ul>
 </div>
 <div class="search-menu">
@@ -59,6 +59,11 @@
         <td class="button-on-td">  
           <a href="/event/<%= event.id %>/edit"><input class="button2" type="button" value="Edit Event"/></a>
         </td>
+        <td class="button-on-td">  
+          <form method="post" action="/event/<%= event.id %>/delete?">
+            <input class="button2" type="submit" value="Delete Event"/>
+          </form>
+        </td>
       </tr>
     <%end%>
   </tbody>
@@ -84,9 +89,6 @@
       
         <td class="button-on-td"> 
           <a href="/event/<%= event.id %>/statistics"><input class="button2" type="button" value="View statistics"/></a>
-        </td>
-        <td class="button-on-td">  
-          <a href="/event/<%= event.id %>/edit"><input class="button2" type="button" value="Edit Event"/></a>
         </td>
         <td class="button-on-td">  
           <a href="/event/<%= event.id %>/edit"><input class="button2" type="button" value="Edit Event"/></a>

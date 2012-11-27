@@ -98,7 +98,7 @@ class MyApplication < Sinatra::Base
     user = User.find(id)
     
     @list    = user.events
-    @user_id = id
+    @user    = user
     erb :event_list
   end
 
@@ -109,7 +109,7 @@ class MyApplication < Sinatra::Base
 
     @results = results
     @list    = user.events
-    @user_id = id
+    @user    = user
     erb :event_list_result
   end
 

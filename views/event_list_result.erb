@@ -21,13 +21,13 @@
 
 <div class="nav">
   <ul>
-    <li><a href="/user/<%= @user_id %>/new">New Event</a></li>
-    <li><a href="/user/<%= @user_id %>/global_stats">Global Statistics</a></li>
-    <li><a style="background-image: none;" href="/login">Logout</a></li>
+    <li><a href="/user/<%= @user.id %>/new">New Event</a></li>
+    <li><a href="/user/<%= @user.id %>/global_stats">Global Statistics</a></li>
+    <li><a style="background-image: none;" href="/login">Logout (<%= @user.name %>)</a></li>
   </ul>
 </div>
 <div class="search-menu">
-  <form method="post" action="/user/<%= @user_id %>/events">
+  <form method="post" action="/user/<%= @user.id %>/events">
     <input class="search-label" type="text" name="search_field"/>
     <input class="button2" type="submit" value="Search event"/>
     <!-- <a onmouseover="javascript:glassEnabled(this);" onmouseout="javascript:glassDisabled(this);" class="search-submit" href="#" title=""></a> -->
