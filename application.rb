@@ -102,6 +102,17 @@ class MyApplication < Sinatra::Base
     erb :event_list
   end
 
+  post '/user/:id/events' do |id|
+    user     = User.find(id)
+    prefix   = "%#{params[:search_field]}%"
+    results  = Event.where(:username => user.name).where("name LIKE ?", prefix)
+
+    @results = results
+    @list    = user.events
+    @user_id = id
+    erb :event_list_result
+  end
+
   get '/event/:id/rate' do |id|
     event  = Event.find(id)
     @event = event.name

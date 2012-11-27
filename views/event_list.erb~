@@ -8,19 +8,63 @@
       var link  = li.getElementsByTagName('div')[0];
       link.className = 'hiddenLink';
    }
+
+   function glassEnabled(a) {
+      a.className = 'search-submit-active';
+   }
+
+   function glassDisabled(a) {
+      a.className = 'search-submit';
+   }
    
 </script>
 
 <div class="nav">
   <ul>
     <li><a href="/user/<%= @user_id %>/new">New Event</a></li>
-    <li><a href="#">Global Statistics</a></li>
+    <li><a href="/user/<%= @user_id %>/global_stats">Global Statistics</a></li>
     <li><a style="background-image: none;" href="/login">Logout</a></li>
   </ul>
 </div>
+<div class="search-menu">
+  <form method="post" action="/user/<%= @user_id %>/events">
+    <input class="search-label" type="text" name="search_field"/>
+    <input class="button2" type="submit" value="Search event"/>
+    <!-- <a onmouseover="javascript:glassEnabled(this);" onmouseout="javascript:glassDisabled(this);" class="search-submit" href="#" title=""></a> -->
+  </form>
+</div>
+
 <h3 class="main-menu">Your event list</h3>
 <label class="main-menu"> Select an event to see the link to share it!</label>
 <br/>
+<br/>
+
+<table class="main-menu">
+  <caption><h3>Search results</h3><caption>
+  <tbody>
+    <% @results.each do | event | %>
+      <tr>
+        <td onmouseover="javascript:showLink(this);" onmouseout="javascript:hideLink(this);">
+          <li>
+            <label> <%= event.name%> at <%= event.date.strftime('%b %d, %Y')%> </label>
+            <div class="hiddenLink" id="linkField">
+              <a href="/event/<%= event.id %>/rate"><span>Share Link</span></a>
+            </div>
+          </li>
+        </td>
+      
+        <td class="button-on-td"> 
+          <a href="/event/<%= event.id %>/statistics"><input class="button2" type="button" value="View statistics"/></a>
+        </td>
+        <td class="button-on-td">  
+          <a href="/event/<%= event.id %>/edit"><input class="button2" type="button" value="Edit Event"/></a>
+        </td>
+      </tr>
+    <%end%>
+  </tbody>
+<table>
+<br/>
+<hr/>
 <br/>
 
 <table class="main-menu">

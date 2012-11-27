@@ -54,6 +54,39 @@ body {
    float: left;
 }
 
+.search-menu {
+   float: right;
+   margin-right: 15;
+   margin-top: 10;
+}
+
+.search-menu .search-label {
+   background: url("/img/search_field_bg.png") repeat-x scroll 0 0 #FFFFFF;
+   border: 2px solid #FAF39D;
+   color: #BA2727;
+   font-size: 100%;
+   font-weight: bold;
+   margin: 0 10px 0 0;
+   padding: 0.1em;
+   width: 15em;
+}
+
+.search-submit {
+   background: url("/img/submit_search_sm.png") no-repeat scroll 0 0 transparent;
+   height: 20;
+   width: 20;
+   position: absolute;
+   margin: -23 0 0 363;
+}
+
+.search-submit-active {
+   background: url("/img/submit_search_sm.png") no-repeat scroll -20px 0 transparent;
+   height: 20;
+   width: 20;
+   position: absolute;
+   margin: -23 0 0 363;
+}
+
 h1 {  
    font-size:200%;
 }
@@ -65,14 +98,15 @@ h2 {
    padding-top: 20px;
 }
 
-h3 {  
-   font-size: 130%;
+h3 {
    font-family: sans-serif;
+   font-size: 130%;
    padding: 20px 5px 5px 10px;
+   color: #D3E7E6;
 }
-
 label {
    font-size: 14px;
+   color: #D3E7E6;
 }
 
 ol {  
@@ -127,6 +161,16 @@ ol {
 
 .middle-form td {
    padding: 5px;
+}
+
+.search-line {
+   width: 550;
+   margin: 75 0 50 50;
+}
+
+.result-line {
+   width: 300;
+   margin: 50 0 15 10;
 }
 
 .register-label {
@@ -212,7 +256,7 @@ a {
 }
 
 .button-on-td {
-   padding: 10px 0px 0px 25px;
+   padding: 10px 0px 0px 15px;
 }
 
 .button {

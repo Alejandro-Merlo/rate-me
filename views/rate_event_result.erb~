@@ -1,2 +1,2 @@
 <h3> The <%= @message %>. Thanks! </h3>
-<hr class="result-line" />
+<hr/>

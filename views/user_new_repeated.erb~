@@ -1,0 +1,3 @@
+<h3> This <%= @message %>, please choose another one </h3>
+<hr class="result-line" />
+<a class="result-line" href="/sign">Back</a>
