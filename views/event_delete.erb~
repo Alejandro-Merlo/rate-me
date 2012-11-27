@@ -1,0 +1,9 @@
+<form method="post" action="/event/<%= @event_id %>/deleted">
+  <h3>This action will delete the event and ALL the scores associated to it</h3>
+  <h3>Are you sure?</h3>
+  
+  <hr class="result-line" />
+
+  <input class="button" type="submit" value="Yes"/>
+  <a class="result-line" href="/user/<%= @user.id %>/events"><input class="button" type="button" value="No"/></a>
+</form>

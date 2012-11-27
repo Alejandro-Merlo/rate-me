@@ -40,34 +40,6 @@
 <br/>
 
 <table class="main-menu">
-  <caption><h3>Search results</h3><caption>
-  <tbody>
-    <% @results.each do | event | %>
-      <tr>
-        <td onmouseover="javascript:showLink(this);" onmouseout="javascript:hideLink(this);">
-          <li>
-            <label> <%= event.name%> at <%= event.date.strftime('%b %d, %Y')%> </label>
-            <div class="hiddenLink" id="linkField">
-              <a href="/event/<%= event.id %>/rate"><span>Share Link</span></a>
-            </div>
-          </li>
-        </td>
-      
-        <td class="button-on-td"> 
-          <a href="/event/<%= event.id %>/statistics"><input class="button2" type="button" value="View statistics"/></a>
-        </td>
-        <td class="button-on-td">  
-          <a href="/event/<%= event.id %>/edit"><input class="button2" type="button" value="Edit Event"/></a>
-        </td>
-      </tr>
-    <%end%>
-  </tbody>
-<table>
-<br/>
-<hr/>
-<br/>
-
-<table class="main-menu">
   <tbody>
     <% @list.each do | event | %>
       <tr>
@@ -85,6 +57,11 @@
         </td>
         <td class="button-on-td">  
           <a href="/event/<%= event.id %>/edit"><input class="button2" type="button" value="Edit Event"/></a>
+        </td>
+        <td class="button-on-td">  
+          <form method="post" action="/event/<%= event.id %>/delete">
+            <input class="button2" type="submit" value="Delete Event"/>
+          </form>
         </td>
       </tr>
     <%end%>

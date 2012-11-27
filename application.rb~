@@ -107,7 +107,8 @@ class MyApplication < Sinatra::Base
     prefix   = "%#{params[:search_field]}%"
     results  = Event.where(:username => user.name).where("name LIKE ?", prefix)
 
-    @list    = results
+    @results = results
+    @list    = user.events
     @user_id = id
     erb :event_list_result
   end
@@ -178,5 +179,22 @@ class MyApplication < Sinatra::Base
     end
     
     erb :event_edit_result
+  end
+
+  post '/event/:id/delete?' do |id|
+    event = Event.find(id)
+    @user = User.find_by_name(event.username)
+
+    @event_id = id
+    erb :event_delete
+  end
+
+  post '/event/:id/deleted' do |id|
+    event = Event.find(id)
+    @user = User.find_by_name(event.username)
+    
+    event.destroy!
+
+    erb :event_delete_result
   end
 end

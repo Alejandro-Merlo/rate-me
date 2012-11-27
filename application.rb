@@ -180,4 +180,22 @@ class MyApplication < Sinatra::Base
     
     erb :event_edit_result
   end
+
+  post '/event/:id/delete?' do |id|
+    event = Event.find(id)
+    @user = User.find_by_name(event.username)
+
+    @event_id = id
+    erb :event_delete
+  end
+
+  post '/event/:id/deleted' do |id|
+    event  = Event.find(id)
+    @user  = User.find_by_name(event.username)
+    
+    Score.delete_all(:event_id => id)
+    event.delete
+
+    erb :event_delete_result
+  end
 end
