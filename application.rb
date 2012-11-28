@@ -25,9 +25,9 @@ class MyApplication < Sinatra::Base
     set :database, 'sqlite:///dev.db'
   end
 
-  #before do 
-    #error 401 unless params[:key] =~ /^xyz/
-  #end
+  before do
+    #Autenthication here
+  end
 
   get '/' do
     erb :home

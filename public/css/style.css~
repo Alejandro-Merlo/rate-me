@@ -28,7 +28,7 @@ body {
 .nav ul {
    list-style-type: none;
    height: 80px;
-   width: 663px;
+   width: 900px;
    margin: auto;
 }
 
@@ -121,6 +121,10 @@ ol {
 .main-menu li span {
    font-size: 13px;
    color: #FF5E00;
+}
+
+#event-list {
+   
 }
 
 .link {

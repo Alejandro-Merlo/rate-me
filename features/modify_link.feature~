@@ -1,0 +1,8 @@
+Feature: As a speaker I want to modify the link to make it more readable
+
+	Scenario: successful modification of an event link
+          Given the user "Rafael" exists
+	  And the "Talk X" of "Rafael" exists for "2012/11/25"
+	  And I am in the "event list" page
+	  When I press "Short link"
+	  Then I should see "your short link"
