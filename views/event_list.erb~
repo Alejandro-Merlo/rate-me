@@ -30,7 +30,7 @@
 <br/>
 <br/>
 
-<table id="event-list" class="main-menu">
+<table class="main-menu">
   <tbody>
     <% @list.each do | event | %>
       <tr>

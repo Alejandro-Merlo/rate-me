@@ -27,7 +27,7 @@
   </ul>
 </div>
 <div class="search-menu">
-  <form method="post" action="/user/<%= @user_id %>/events">
+  <form method="post" action="/user/<%= @user.id %>/events">
     <input class="search-label" type="text" name="search_field"/>
     <input class="button2" type="submit" value="Search event"/>
     <!-- <a onmouseover="javascript:glassEnabled(this);" onmouseout="javascript:glassDisabled(this);" class="search-submit" href="#" title=""></a> -->

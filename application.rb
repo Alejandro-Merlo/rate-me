@@ -29,6 +29,28 @@ class MyApplication < Sinatra::Base
     #Autenthication here
   end
 
+  ENV['TWITTER_KEY']    = 'dRlsKr7SApsbGrXLJDrDXQ'
+  ENV['TWITTER_SECRET'] = 'kJ9rcL6rFgYGnSSxSZmkM2fvpvZoo42Wl05W5sLM'
+
+  get '/auth/:provider/callback' do
+    session[:uid] = request.env['omniauth.auth']["uid"]
+    session[:user_name] = request.env['omniauth.auth']["info"]["name"]
+    redirect '/'
+  end
+
+  ["/login/?", "/?"].each do |path|
+    get path do
+      redirect '/auth/:provider/callback'
+    end
+  end
+
+  ["/logout/?"].each do |path|
+    get path do
+      session[:user_id] = nil
+      redirect '/'
+    end
+  end
+
   get '/' do
     erb :home
   end
