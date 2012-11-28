@@ -38,19 +38,6 @@ class MyApplication < Sinatra::Base
     redirect '/'
   end
 
-  ["/login/?", "/?"].each do |path|
-    get path do
-      redirect '/auth/:provider/callback'
-    end
-  end
-
-  ["/logout/?"].each do |path|
-    get path do
-      session[:user_id] = nil
-      redirect '/'
-    end
-  end
-
   get '/' do
     erb :home
   end
