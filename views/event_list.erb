@@ -8,14 +8,6 @@
       var link  = li.getElementsByTagName('div')[0];
       link.className = 'hiddenLink';
    }
-
-   function glassEnabled(a) {
-      a.className = 'search-submit-active';
-   }
-
-   function glassDisabled(a) {
-      a.className = 'search-submit';
-   }
    
 </script>
 
@@ -30,7 +22,6 @@
   <form method="post" action="/user/<%= @user.id %>/events">
     <input class="search-label" type="text" name="search_field"/>
     <input class="button2" type="submit" value="Search event"/>
-    <!-- <a onmouseover="javascript:glassEnabled(this);" onmouseout="javascript:glassDisabled(this);" class="search-submit" href="#" title=""></a> -->
   </form>
 </div>
 

@@ -1,6 +1,90 @@
-<form class="middle-form" method="post" action="new">
-  <h2>Create Event</h2>
+<script language="javascript">
 
+   function createAjaxRequest() {
+     if (typeof XMLHttpRequest != "undefined") {
+       return new XMLHttpRequest();
+     }
+     else if (window.ActiveXObject) {
+       return new ActiveXObject("Microsoft.XMLHTTP");
+     }
+   }
+
+   var ajaxRequest = createAjaxRequest();
+
+   function createUser() {
+     ajaxRequest.open("GET", "/date_error", true)
+     ajaxRequest.onreadystatechange = showDateError;
+     ajaxRequest.send(null);
+   }
+
+   function showDateError() {
+     if (ajaxRequest.readyState == 4) {
+       if (ajaxRequest.status == 200) {
+         document.getElementById("feedback").innerHTML = ajaxRequest.responseText
+       }
+       else {
+         alert("No se pudo validar el pedido" + "\n" +
+               "Por un error: " + ajaxRequest.status + ajaxRequest.statusText);
+       }
+     }
+   }
+
+    function isDate(ExpiryDate) {
+    var objDate,
+        mSeconds,
+        day,
+        month,
+        year;
+    if (ExpiryDate.length !== 10) {
+        return false;
+    }
+    
+    if (ExpiryDate.substring(4, 5) !== '/' || ExpiryDate.substring(7, 8) !== '/') {
+        return false;
+    }
+    
+    year = ExpiryDate.substring(0, 4) - 1;
+    month = ExpiryDate.substring(5, 7) - 0;
+    day = ExpiryDate.substring(8, 10) - 0;
+
+    if (year < 1000 || year > 3000) {
+        return false;
+    }
+
+    mSeconds = (new Date(year, month, day)).getTime();
+
+    objDate = new Date();
+    objDate.setTime(mSeconds);
+
+
+    if (objDate.getFullYear() !== year ||
+        objDate.getMonth() !== month ||
+        objDate.getDate() !== day) {
+        return false;
+    }
+
+    return true;
+}
+
+
+    function validate(){
+    var ExpiryDate = document.getElementById('date').value;
+    if (isDate(ExpiryDate)) {
+        document.forms["createForm"].submit();
+    }
+    else {
+        createUser();
+    }
+          
+}
+
+</script>
+
+<form id="createForm" class="middle-form" method="post" action="new">
+  <h2>Create Event</h2>
+  </br>
+
+  <br/>
   <label> Type new event name </label>
   </br>
   <input type="text" required="required" name="name" />
@@ -9,10 +93,12 @@
 
   <label> Type the date for the new event </label>
   </br>
-  <input type="date" required="required" name="date" />
+  <input type="date" required="required" id="date" name="date" />
   </br>
   </br>
 
-  <input class="button" type="submit" value="Create event"/>
+  <a href="javascript:validate();"><input class="button" type="button" value="Create event"/>
   <a href="/user/<%= @user_id %>/events"><input class="button" type="button" value="Cancel"/></a>
 </form>
+
+<div id="feedback" class="feedback" />

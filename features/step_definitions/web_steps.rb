@@ -265,6 +265,14 @@ Given /^the user "([^"]*)" with password "([^"]*)" exists$/ do |user_name, user_
   user.save
 end
 
+Given /^the user "([^"]*)" with email "([^"]*)" exists$/ do |user_name, user_email|
+  user          = User.new
+  user.name     = user_name
+  user.password = "1234"
+  user.email    = user_email
+  user.save
+end
+
 Given /^the user "([^"]*)" doesn't exist$/ do |user_name|
   current = User.find_by_name(user_name)
   current.destroy if (current != nil)

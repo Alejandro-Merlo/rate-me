@@ -1,0 +1,19 @@
+class App < Sinatra::Base
+  register do
+    def check (name)
+      condition do
+        error 401 unless send(name) == true
+      end
+    end
+  end
+
+  helpers do
+    def valid_key?
+      params[:key].to_i % 2 > 0
+    end
+  end
+
+  get "/", :check => :valid_key? do
+    [1, 2, 3].to_json
+  end
+end

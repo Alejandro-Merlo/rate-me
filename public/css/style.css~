@@ -71,22 +71,6 @@ body {
    width: 15em;
 }
 
-.search-submit {
-   background: url("/img/submit_search_sm.png") no-repeat scroll 0 0 transparent;
-   height: 20;
-   width: 20;
-   position: absolute;
-   margin: -23 0 0 363;
-}
-
-.search-submit-active {
-   background: url("/img/submit_search_sm.png") no-repeat scroll -20px 0 transparent;
-   height: 20;
-   width: 20;
-   position: absolute;
-   margin: -23 0 0 363;
-}
-
 h1 {  
    font-size:200%;
 }
@@ -161,6 +145,10 @@ ol {
 
 .middle-form td {
    padding: 5px;
+}
+
+.middle-form caption {
+   padding: 20px;
 }
 
 .search-line {
@@ -245,7 +233,6 @@ a {
    display: block;
    position: absolute;
    background-color: #100F0F;
-   color: #FF5E00;
    border:1px solid 0053D0;
    font-family:"Trebuchet MS", Arial;
    font-size: 10px;
@@ -253,6 +240,10 @@ a {
    z-index: 1000;
    border: 1px solid #3E3C38;
    border-radius: 3px 3px 3px 3px;
+}
+
+.comment-field label {
+   color: #FF5E00;
 }
 
 .button-on-td {

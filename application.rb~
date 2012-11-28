@@ -25,6 +25,10 @@ class MyApplication < Sinatra::Base
     set :database, 'sqlite:///dev.db'
   end
 
+  #before do 
+    #error 401 unless params[:key] =~ /^xyz/
+  #end
+
   get '/' do
     erb :home
   end
@@ -109,7 +113,7 @@ class MyApplication < Sinatra::Base
 
     @results = results
     @list    = user.events
-    @user_id = id
+    @user    = user
     erb :event_list_result
   end
 
@@ -197,5 +201,17 @@ class MyApplication < Sinatra::Base
     event.delete
 
     erb :event_delete_result
+  end
+
+  get '/recover' do
+    
+    erb :recover_pass, :layout => false
+  end
+
+  post '/recover' do
+    user = User.find_by_email(params[:email])
+    return erb :recover_pass_fail if user == nil
+
+    erb :recover_pass_result
   end
 end

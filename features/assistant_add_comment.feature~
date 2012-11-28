@@ -1,4 +1,4 @@
-Feature: As an assistant i want to discuss my qualification to give more details
+Feature: As an assistant I want to discuss my qualification to give more details
 
         Scenario: Successful sending of a comment
           Given the "great event 2" exists for "2012-10-19"

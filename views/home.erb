@@ -10,7 +10,12 @@
       <td><input name="username" type="text" required="required" /></td>
     </tr>
     <tr>
-      <td>Password: </td>
+      <td>
+        <br/>
+        Password: 
+        <br/>
+        <label class="register-label"><a href="javascript:openRecoverForm()">Forgot your password?</a></label>
+      </td>
       <td><input name="password" type="password" required="required"/></td>
     </tr>
     <tr>
@@ -19,3 +24,38 @@
     </tr>
   </table>
 </form>
+
+<div id="recover-form" />
+
+<script type="text/javascript">
+
+  function createAjaxRequest() {
+    if (typeof XMLHttpRequest != "undefined") {
+      return new XMLHttpRequest();
+    }
+    else if (window.ActiveXObject) {
+      return new ActiveXObject("Microsoft.XMLHTTP");
+    }
+  }
+
+  var ajaxRequest = createAjaxRequest();
+
+  function openRecoverForm() {
+    ajaxRequest.open("GET", "/recover", true);
+    ajaxRequest.onreadystatechange = showForm;
+    ajaxRequest.send(null);
+  }
+
+  function showForm() {
+    if (ajaxRequest.readyState == 4) {
+      if (ajaxRequest.status == 200) {
+        document.getElementById("recover-form").innerHTML = ajaxRequest.responseText;
+      }
+      else {
+        alert("No se pudo abrir el formulario " + "\n" +
+                 "Por un error: " + ajaxRequest.status + ajaxRequest.statusText);
+      }
+    }
+  }
+
+</script>

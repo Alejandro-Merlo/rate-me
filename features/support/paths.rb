@@ -39,6 +39,9 @@ module NavigationHelpers
 
     when /registration page/
         '/sign'
+   
+    when /recover pass page/
+        '/recover'
 
 
     # Add more mappings here.

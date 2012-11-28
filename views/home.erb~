@@ -10,7 +10,12 @@
       <td><input name="username" type="text" required="required" /></td>
     </tr>
     <tr>
-      <td>Password: </td>
+      <td>
+        <br/>
+        Password: 
+        <br/>
+        <label class="register-label"><a href="/recover">Forgot your password?</a></label>
+      </td>
       <td><input name="password" type="password" required="required"/></td>
     </tr>
     <tr>
@@ -18,5 +23,4 @@
       <td><input class="button" type="submit" value="Login"/><label class="register-label"> Don't you have an account? <a href="/sign">Register here!</a></label></td>
     </tr>
   </table>
-  <!-- <input class="button" type="submit" value="Login"/> Don't you have an account? <a href="/sign">Register here!</a>-->
 </form>

@@ -1,5 +1,4 @@
 Feature: As a speaker I want to create an event in order to receive feedback
-  Event name should be unique
   Date field content should be a valid date format
 
         Background:
