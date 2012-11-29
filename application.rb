@@ -8,6 +8,7 @@ require './models/user.rb' # your models
 
 class MyApplication < Sinatra::Base
   register Sinatra::ActiveRecordExtension
+
   enable :sessions
 
 

@@ -8,6 +8,10 @@ require './models/user.rb' # your models
 
 class MyApplication < Sinatra::Base
   register Sinatra::ActiveRecordExtension
+
+  use Rack::Session::Cookie
+  use OmniAuth::Strategies::Twitter
+
   enable :sessions
 
 
@@ -37,19 +41,6 @@ class MyApplication < Sinatra::Base
     session[:user_name] = request.env['omniauth.auth']["info"]["name"]
     redirect '/'
   end
-
-  #["/login/?"].each do |path|
-   # get path do
-    #  redirect '/auth/twitter'
-    #end
-  #end
-
-  #["/logout/?"].each do |path|
-   # get path do
-    #  session[:user_id] = nil
-    #  redirect '/'
-   # end
-  #end
 
   get '/' do
     erb :home
