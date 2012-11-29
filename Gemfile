@@ -6,7 +6,6 @@ gem "rake"
 gem 'activerecord'
 gem 'activerecord-postgresql-adapter'
 gem 'sinatra-activerecord'
-gem 'sqlite3'
 gem 'pg'
 gem 'json'
 gem 'omniauth'
