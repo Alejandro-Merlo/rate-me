@@ -6,6 +6,7 @@ gem "rack"
 gem "rake"
 gem 'activerecord'
 gem 'activerecord-postgresql-adapter'
+gem 'sqlite3'
 gem 'sinatra-activerecord'
 gem 'pg'
 gem 'json'
