@@ -1,12 +1,10 @@
 source 'http://rubygems.org'
 gem 'sinatra'
-gem 'thin'
 gem "unicorn"
 gem "rack"
 gem "rake"
 gem 'activerecord'
 gem 'activerecord-postgresql-adapter'
-gem 'sqlite3'
 gem 'sinatra-activerecord'
 gem 'pg'
 gem 'json'
