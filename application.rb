@@ -30,9 +30,6 @@ class MyApplication < Sinatra::Base
     #Autenthication here
   end
 
-  ENV['TWITTER_KEY']    = 'dRlsKr7SApsbGrXLJDrDXQ'
-  ENV['TWITTER_SECRET'] = 'kJ9rcL6rFgYGnSSxSZmkM2fvpvZoo42Wl05W5sLM'
-
   get '/auth/:provider/callback' do
     session[:uid] = request.env['omniauth.auth']["uid"]
     session[:user_name] = request.env['omniauth.auth']["info"]["name"]

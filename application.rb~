@@ -9,9 +9,6 @@ require './models/user.rb' # your models
 class MyApplication < Sinatra::Base
   register Sinatra::ActiveRecordExtension
 
-  use Rack::Session::Cookie
-  use OmniAuth::Strategies::Twitter
-
   enable :sessions
 
 
@@ -33,8 +30,8 @@ class MyApplication < Sinatra::Base
     #Autenthication here
   end
 
-  ENV['TWITTER_KEY']    = 'dRlsKr7SApsbGrXLJDrDXQ'
-  ENV['TWITTER_SECRET'] = 'kJ9rcL6rFgYGnSSxSZmkM2fvpvZoo42Wl05W5sLM'
+  #ENV['TWITTER_KEY']    = 'dRlsKr7SApsbGrXLJDrDXQ'
+  #ENV['TWITTER_SECRET'] = 'kJ9rcL6rFgYGnSSxSZmkM2fvpvZoo42Wl05W5sLM'
 
   get '/auth/:provider/callback' do
     session[:uid] = request.env['omniauth.auth']["uid"]
