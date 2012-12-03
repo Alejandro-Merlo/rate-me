@@ -11,6 +11,8 @@ require File.expand_path(File.join(File.dirname(__FILE__), "../..", "application
 
 require File.expand_path(File.join(File.dirname(__FILE__), "..", "support", "paths"))
 
+enable :sessions
+
 module WithinHelpers
   def with_scope(locator)
     locator ? within(locator) { yield } : yield
@@ -113,14 +115,6 @@ Then /^(?:|I )should see "([^\"]*)"(?: within "([^\"]*)")?$/ do |text, selector|
     else
       assert page.has_content?(text)
     end
-  end
-end
-
-Then /^(?:|I )should see "([^\"]*)"$/ do |text|
-  if page.respond_to? :should
-    page.should have_content(text)
-  else
-    assert page.has_content?(text)
   end
 end
 
@@ -250,6 +244,8 @@ Given /^the "([^"]*)" exists for "([^"]*)"$/ do |event_name, date|
   event.date     = Date.parse(date)
   event.username = "some"
   event.save
+
+  session[:authenticated] = true
 end
 
 Given /^I am in the event "([^"]*)" (.+)$/ do |event_name, page_name|
@@ -262,6 +258,8 @@ Given /^the user "([^"]*)" exists$/ do |user_name|
   user.name     = user_name
   user.password = "1234"
   user.email    = "a_mail"
+
+  session[:authenticated] = true
   user.save
 end
 
@@ -270,6 +268,8 @@ Given /^the user "([^"]*)" with password "([^"]*)" exists$/ do |user_name, user_
   user.name     = user_name
   user.password = user_pass
   user.email    = "a_mail"
+
+  session[:authenticated] = true
   user.save
 end
 
@@ -279,6 +279,8 @@ Given /^the user "([^"]*)" with email "([^"]*)" exists$/ do |user_name, user_ema
   user.password = "1234"
   user.email    = user_email
   user.save
+  
+  session[:authenticated] = true
 end
 
 Given /^the user "([^"]*)" doesn't exist$/ do |user_name|
@@ -293,6 +295,8 @@ Given /^the "([^"]*)" of "([^"]*)" exists for "([^"]*)"$/ do |event_name, user_n
   event.date     = event_date
   event.username = current.name
   event.user_id  = current.id
+  
+  session[:authenticated] = true
   event.save
 end
 

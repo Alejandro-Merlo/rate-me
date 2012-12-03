@@ -34,11 +34,12 @@ class MyApplication < Sinatra::Base
   end
 
   before do
-    unless request.path_info == '/login' || request.path_info == '/sign' || request.path_info == '/recover' ||
-           request.path_info == '/event/?/rate' || request.path_info == '/' ||
-           request.path_info == '/auth/twitter/callback'
-      throw(:halt, [401, "You must login first!\n"]) unless session[:authenticated]
-    end
+    #TODO: Implement a better authentication logic
+    #unless request.path_info == '/login' || request.path_info == '/sign' || request.path_info == '/recover' ||
+           #request.path_info == '/event/?/rate' || request.path_info == '/' ||
+           #request.path_info == '/auth/twitter/callback'
+      #throw(:halt, [401, "You must login first!\n"]) unless session[:authenticated]
+    #end
   end
 
   get '/auth/:provider/callback' do
@@ -238,7 +239,7 @@ class MyApplication < Sinatra::Base
     user = User.find_by_email(params[:email])
     return erb :recover_pass_fail if user == nil
 
-    #Send email
+    #TODO: Send email
 
     erb :recover_pass_result
   end
