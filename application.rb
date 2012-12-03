@@ -12,7 +12,11 @@ require './models/user.rb' # your models
 class MyApplication < Sinatra::Base
   register Sinatra::ActiveRecordExtension
 
-  use OmniAuth::Strategies::Twitter, "kJ9rcL6rFgYGnSSxSZmkM2fvpvZoo42Wl05W5sLM", "dRlsKr7SApsbGrXLJDrDXQ"
+  #use OmniAuth::Strategies::Twitter, "dRlsKr7SApsbGrXLJDrDXQ", "kJ9rcL6rFgYGnSSxSZmkM2fvpvZoo42Wl05W5sLM"
+
+  use OmniAuth::Builder do
+    provider :twitter, "dRlsKr7SApsbGrXLJDrDXQ", "kJ9rcL6rFgYGnSSxSZmkM2fvpvZoo42Wl05W5sLM"
+  end
 
   enable :sessions
 
