@@ -12,8 +12,6 @@ require './models/user.rb' # your models
 class MyApplication < Sinatra::Base
   register Sinatra::ActiveRecordExtension
 
-  #use OmniAuth::Strategies::Twitter, "dRlsKr7SApsbGrXLJDrDXQ", "kJ9rcL6rFgYGnSSxSZmkM2fvpvZoo42Wl05W5sLM"
-
   use OmniAuth::Builder do
     provider :twitter, 'dRlsKr7SApsbGrXLJDrDXQ', 'kJ9rcL6rFgYGnSSxSZmkM2fvpvZoo42Wl05W5sLM'
   end
@@ -36,12 +34,16 @@ class MyApplication < Sinatra::Base
   end
 
   before do
-    #Autenthication here
+    unless request.path_info == '/login' || request.path_info == '/sign' || request.path_info == '/recover' ||
+           request.path_info == '/event/?/rate' || request.path_info == '/'
+      throw(:halt, [401, "You must login first!\n"]) unless session[:authenticated]
+    end
   end
 
   get '/auth/:provider/callback' do
     session[:uid] = request.env['omniauth.auth']["uid"]
     session[:user_name] = request.env['omniauth.auth']["info"]["name"]
+    session[:authenticated] = true
     redirect '/login'
   end
 
@@ -57,9 +59,15 @@ class MyApplication < Sinatra::Base
     user = User.find_by_name_and_password(params[:username], params[:password])
     return erb :login_fail if (user == nil)
 
+    session[:authenticated] = true
     @user_id = user.id.to_s()
     @message = "You have logged in rate me!"
     erb :login_result
+  end
+
+  get '/logout' do
+    session[:authenticated] = false
+    redirect '/'
   end
 
   get '/sign' do
@@ -115,6 +123,7 @@ class MyApplication < Sinatra::Base
   end
 
   get '/user/:id/events' do |id|
+
     user = User.find(id)
     
     @list    = user.events
