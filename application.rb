@@ -1,6 +1,9 @@
 require 'sinatra/base'
 require 'sinatra/activerecord'
 require 'date'
+require 'sinatra'
+require 'omniauth'
+require 'omniauth-twitter'
 require './models/event.rb'
 require './models/score.rb'
 require './models/user.rb' # your models
@@ -8,6 +11,8 @@ require './models/user.rb' # your models
 
 class MyApplication < Sinatra::Base
   register Sinatra::ActiveRecordExtension
+
+  use OmniAuth::Strategies::Twitter, "dRlsKr7SApsbGrXLJDrDXQ", "kJ9rcL6rFgYGnSSxSZmkM2fvpvZoo42Wl05W5sLM"
 
   enable :sessions
 
@@ -33,7 +38,7 @@ class MyApplication < Sinatra::Base
   get '/auth/:provider/callback' do
     session[:uid] = request.env['omniauth.auth']["uid"]
     session[:user_name] = request.env['omniauth.auth']["info"]["name"]
-    redirect '/'
+    redirect '/login'
   end
 
   get '/' do
