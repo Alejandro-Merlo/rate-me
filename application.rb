@@ -34,8 +34,9 @@ class MyApplication < Sinatra::Base
   end
 
   before do
-    unless request.path_info == '/login' || request.path_info == '/sign' || request.path_info == '/recover' ||
-           request.path_info == '/event/?/rate' || request.path_info == '/'
+    unless request.path_info == '/login' || request.path_info == '/sign' || request.path_info == '/recover'
+           || request.path_info == '/event/?/rate' || request.path_info == '/'
+           || request.path_info == '/auth/:provider/callback'
       throw(:halt, [401, "You must login first!\n"]) unless session[:authenticated]
     end
   end
