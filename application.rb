@@ -15,7 +15,7 @@ class MyApplication < Sinatra::Base
   #use OmniAuth::Strategies::Twitter, "dRlsKr7SApsbGrXLJDrDXQ", "kJ9rcL6rFgYGnSSxSZmkM2fvpvZoo42Wl05W5sLM"
 
   use OmniAuth::Builder do
-    provider :twitter, "dRlsKr7SApsbGrXLJDrDXQ", "kJ9rcL6rFgYGnSSxSZmkM2fvpvZoo42Wl05W5sLM"
+    provider :twitter, 'dRlsKr7SApsbGrXLJDrDXQ', 'kJ9rcL6rFgYGnSSxSZmkM2fvpvZoo42Wl05W5sLM'
   end
 
   enable :sessions
